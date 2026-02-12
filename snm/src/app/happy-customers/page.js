@@ -6,7 +6,7 @@ export default function HappyCustomers() {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/reviews")
+    fetch("https://api.iraayacollection.com/wp-json/snm/v1/reviews")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {

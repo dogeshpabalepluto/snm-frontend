@@ -24,7 +24,7 @@ export default function CategoryPage() {
     setLoading(true);
 
     fetch(
-      `https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/products?category=${slug}&page=${currentPage}&per_page=25&search=${encodeURIComponent(
+      `https://api.iraayacollection.com/wp-json/snm/v1/products?category=${slug}&page=${currentPage}&per_page=25&search=${encodeURIComponent(
         search
       )}`
     )

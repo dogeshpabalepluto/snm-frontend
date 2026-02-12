@@ -22,7 +22,7 @@ export default function ProductPage() {
   useEffect(() => {
     if (!id) return;
 
-    fetch(`https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/product/${id}`)
+    fetch(`https://api.iraayacollection.com/wp-json/snm/v1/product/${id}`)
     .then((res) => res.json())
     .then((data) => {
       setProduct(data);
@@ -33,7 +33,7 @@ export default function ProductPage() {
 
   // Fetch reviews
   useEffect(() => {
-    fetch("https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/reviews")
+    fetch("https://api.iraayacollection.com/wp-json/snm/v1/reviews")
       .then((res) => res.json())
       .then((data) => {
         // SAFETY CHECK
@@ -74,7 +74,7 @@ export default function ProductPage() {
   const category = product.categories[0];
 
   fetch(
-    `https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/products?category=${category}&per_page=6`
+    `https://api.iraayacollection.com/wp-json/snm/v1/products?category=${category}&per_page=6`
   )
     .then((res) => res.json())
     .then((data) => {

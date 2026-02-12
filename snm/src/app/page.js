@@ -2,7 +2,7 @@ import CategoryDropdown from "./components/CategoryDropdown";
 
 
 async function getCategories() {
-  const res = await fetch("https://purple-crab-746918.hostingersite.com/wp-json/snm/v1/categories", {
+  const res = await fetch("https://api.iraayacollection.com/wp-json/snm/v1/categories", {
     cache: "no-store",
   });
   return res.json();
