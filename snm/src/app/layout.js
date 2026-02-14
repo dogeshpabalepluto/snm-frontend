@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./globals.css";
 import { Poppins, Playfair_Display } from "next/font/google";
+import MobileIntro from "@/components/MobileIntro";
+
 
 
 
@@ -25,11 +27,17 @@ const playfair = Playfair_Display({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${playfair.variable}`}>
-        <Header  />
-        {children}
-        <Footer />
+      <body className={`pre-intro ${poppins.className} ${playfair.variable}`}>
+        <MobileIntro />
+        <div id="site-wrapper">
+          <Header />
+          <div id="main-content">
+            {children}
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
 }
+

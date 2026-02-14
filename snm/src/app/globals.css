@@ -1401,3 +1401,68 @@ body::before {
 
 
 
+/* ===== Mobile Intro Animation (Luxury Hold Version) ===== */
+
+.mobile-intro {
+  position: fixed;
+  inset: 0;
+  background: #f6edf0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: introFade 1.6s ease forwards;
+}
+
+.mobile-intro img {
+  width: 150px;
+  animation: logoMove 1.6s ease forwards;
+}
+
+@keyframes logoMove {
+  0% {
+    transform: scale(1.15) translateY(0);
+    opacity: 1;
+  }
+
+  /* HOLD PHASE */
+  40% {
+    transform: scale(1.15) translateY(0);
+    opacity: 1;
+  }
+
+  /* START MOVING */
+  80% {
+    transform: scale(0.6) translateY(-140px);
+  }
+
+  100% {
+    transform: scale(0.6) translateY(-160px);
+    opacity: 0;
+  }
+}
+
+@keyframes introFade {
+  0% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+/* Prevent content flash during intro */
+.mobile-intro + #main-content {
+  visibility: hidden;
+}
+
+.mobile-intro ~ #main-content {
+  visibility: hidden;
+}
+
+body.intro-active #main-content {
+  visibility: hidden;
+}
+
+/* Hide entire site before intro finishes */
+body.pre-intro #site-wrapper {
+  visibility: hidden;
+}
