@@ -77,6 +77,8 @@ img {
 }
 
 
+
+
 /* ===== BASE RESET ===== */
 * {
   box-sizing: border-box;
@@ -1353,6 +1355,26 @@ footer .page-container {
     padding-left: 8px;   /* 👈 logo moves left */
     padding-right: 16px; /* keep right spacing comfortable */
   }
+}
+
+/* ===== Luxury Global Background ===== */
+
+
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/bg-marble.jpg') center center / cover no-repeat;
+  z-index: -1;
+
+  filter: blur(4px);     /* less blur */
+  opacity: 0.35;         /* increase visibility */
+  transform: scale(1.05); /* prevents blur edge cut */
 }
 
 
