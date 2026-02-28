@@ -7,6 +7,9 @@ export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
+  const allImages = product
+  ? [product.image, ...(product.gallery_images || [])].filter(Boolean)
+  : [];
   // const [allProducts, setAllProducts] = useState([]);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
@@ -205,7 +208,7 @@ Product Link: ${window.location.href}`;
     <div>
       <h1>{product.name}</h1>
 
-      {displayImage && (
+      {/* {displayImage && (
       <img
         src={displayImage}
         alt={product.name}
@@ -216,7 +219,66 @@ Product Link: ${window.location.href}`;
           borderRadius: "12px",
         }}
       />
-    )}
+    )} */}
+
+    {displayImage && (
+        <>
+          {/* MAIN IMAGE */}
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "420px",
+              height: "520px",   // fixed height
+              borderRadius: "12px",
+              overflow: "hidden",
+              marginBottom: "14px",
+            }}
+          >
+            <img
+              src={displayImage}
+              alt={product.name}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",   // crops nicely
+              }}
+            />
+          </div>
+
+          {/* THUMBNAILS */}
+          <div
+            style={{
+              display: "flex",
+              gap: "8px",
+              flexWrap: "wrap",
+              marginTop: "8px",
+            }}
+          >
+            {allImages.map(
+              (img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt="Thumbnail"
+                  onClick={() => setDisplayImage(img)}
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    objectFit: "cover",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    border:
+                      displayImage === img
+                        ? "2px solid var(--primary)"
+                        : "1px solid #ddd",
+                    transition: "all 0.2s ease",
+                  }}
+                />
+              )
+            )}
+          </div>
+        </>
+      )}
 
       {/* PRICE */}
       {!hasDiscount && (
@@ -235,6 +297,19 @@ Product Link: ${window.location.href}`;
       <p>
         <strong>Stock:</strong> {stock}
       </p>
+      {product.description && (
+        <div
+          style={{
+            marginTop: "24px",
+            paddingTop: "20px",
+            borderTop: "1px solid rgba(184, 50, 90, 0.15)",
+            fontSize: window.innerWidth < 768 ? "13px" : "15px",
+            lineHeight: "1.8",
+            color: "rgba(0,0,0,0.85)",
+          }}
+          dangerouslySetInnerHTML={{ __html: product.description }}
+        />
+      )}
 
 
       {product.size_data && (

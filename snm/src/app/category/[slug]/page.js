@@ -105,9 +105,36 @@ export default function CategoryPage() {
               />
             )}
 
-            <h3>{product.name}</h3>
-
-            {/* PRICE LOGIC */}
+            <h3
+              style={{
+                fontSize: "18px",
+                fontWeight: "600",
+                marginBottom: "6px",
+                letterSpacing: "0.3px",
+                color: "var(--text-main)",
+              }}
+            >
+              {product.name}
+          </h3>
+            {product.short_description && (
+              <p
+                style={{
+                  fontSize: "13px",
+                  color: "rgba(0,0,0,0.65)",  // softer than title
+                  marginTop: "0px",
+                  marginBottom: "10px",
+                  minHeight: "72px",
+                  lineHeight: "1.6",
+                  overflow: "hidden",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 4,
+                  WebkitBoxOrient: "vertical",
+                }}
+              >
+                {product.short_description}
+              </p>
+           )}
+                        {/* PRICE LOGIC */}
             {product.sale_price ? (
               <div className="price-box">
                 <p className="mrp">₹{product.price}</p>
@@ -120,9 +147,7 @@ export default function CategoryPage() {
               </div>
             )}
 
-            <p style={{ fontSize: "14px", color: "var(--gray)" }}>
-              Stock left: {product.stock ?? "Available"}
-            </p>
+            
           </div>
         </a>
       ))}
