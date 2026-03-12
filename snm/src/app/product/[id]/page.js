@@ -149,7 +149,7 @@ Price: ₹${hasDiscount ? product.sale_price : product.price}
 Product Link: ${window.location.href}`;
 
 
-  const whatsappLink = `https://wa.me/919999999999?text=${encodeURIComponent(
+  const whatsappLink = `https://wa.me/917021892645?text=${encodeURIComponent(
     message
   )}`;
 
@@ -178,7 +178,7 @@ Product Link: ${window.location.href}`;
 
         message += `Total items: ${cart.length}`;
 
-        const whatsappUrl = `https://wa.me/919999999999?text=${encodeURIComponent(
+        const whatsappUrl = `https://wa.me/917021892645?text=${encodeURIComponent(
           message
         )}`;
 
