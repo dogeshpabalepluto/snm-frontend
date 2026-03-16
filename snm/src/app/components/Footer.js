@@ -30,7 +30,7 @@ export default function Footer() {
         <div style={{ display: "flex", gap: "16px" }}>
           {/* WhatsApp */}
           <a
-            href="https://wa.me/919967889463"
+            href="https://wa.me/917021892645"
             target="_blank"
             rel="noopener noreferrer"
             className="social-btn whatsapp"
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Instagram */}
           <a
-            href="https://instagram.com/"
+            href="https://www.instagram.com/iraaya_collections?igsh=MTdzdGYzdm1heDdhaA=="
             target="_blank"
             rel="noopener noreferrer"
             className="social-btn instagram"
